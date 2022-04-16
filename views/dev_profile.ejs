@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dev_post.css">
+</head>
+<body>
+    <header class="header-bar mb-3">
+        <div class="container d-flex flex-column flex-md-row align-items-center p-3">
+            <h4 class="my-0 mr-md-auto"><a href="/home" class="text-white">Codeial</a></h4>
+            <div class="flex-row my-3 my-md-0">
+                <!-- <a href="#" class="text-white mr-2 header-search-icon" title="Search" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-search"></i></a> -->
+                <!-- <span class="text-white mr-2 header-chat-icon" title="Chat" data-toggle="tooltip" data-placement="bottom"><i class="fas fa-comment"></i></span> -->
+                <a href="/users/profile/<%=user.id%>" class="mr-2"><img title="My Profile" data-toggle="tooltip" data-placement="bottom" style="width: 32px; height: 32px; border-radius: 16px;" src="<%=profile.avatar%>"></a>
+                <a class="btn btn-sm btn mr-2" href="/users/homeinside">Home</a>
+                <form action="/users/logout" method="GET" class="d-inline">
+                    <button class="btn btn-sm ">Sign Out</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- body form starts here-->
+    <div class="container py-md-5 container--narrow">
+        <h2><img  src="<%=profile.avatar%>" style="width: 100px; height: 100px; border-radius: 50px;" > <%=profile.name%>
+           <%if(user.id==profile.id){%>
+                <form class="ml-2 d-inline" action="/users/updateprofile" method="GET">
+                    <button class="btn2 btn-sm btn-info">Update Profile<i class="fa fa-user-plus"></i></button>
+                </form>
+            <%}else{%>
+               <%if(dost=="yes"){%>
+                <form class="ml-2 d-inline" action="/users/unfollow/<%=profile.id%>" method="POST">
+                    <button class="btn btn-sm btn-secondary">Unfollow<i class="fa fa-user-minus"></i></button>
+                </form>
+
+
+               <%}else{%>
+                <form class="ml-2 d-inline" action="/users/follow/<%=profile.id%>" method="POST">
+                    <button class="btn btn-sm btn-primary">Follow<i class="fa fa-user-plus"></i></button>
+                </form>
+          
+               <%}%>
+        
+            <%}%>
+        </h2>
+        <h5><%=profile.profile%></h5>
+        <div class="profile-nav nav nav-tabs pt-2 mb-4">
+            <a href="#post" class="profile-nav-link nav-item nav-link active">Post: <%=feed.length%></a>
+            <a href="#foll" class="profile-nav-link nav-item nav-link">Followers: <%=profile.followers.length%></a>
+            <a href="#fing" class="profile-nav-link nav-item nav-link">Followings: <%=profile.following.length%></a>
+        </div>
+        <div class="list-group">
+            <%for(feed of feed){%>
+                <div class="d-flex justify-content-between">
+                    <Strong><%=feed.content%></strong>
+                     <span class="pt-2">
+                        <%if(user.id==profile.id){%>
+                            <a href="/users/postedit/<%=feed.id%>" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fa-edit"></i></a>
+                            <form class="delete-post-form d-inline" action="/users/deletefeed/<%=feed.id%>" method="post">
+                                <button class="delete-post-button text-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fas fa-trash"></i></button>
+                            </form>
+                        <%}else{%>
+                            <%=feed.likes.length%> Likes
+                            <a href="/users/togglefeed/<%=feed.id%>" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Like"><i class="fas fa-thumbs-up"></i></a>
+                        
+                        <%}%>
+                    </span>
+                 </div>
+                <p class="text-muted small mb-4">
+                    <a href="#"><img class="avatar-tiny" src="<%=profile.avatar%>"></a>
+                    Posted on <%=feed.date%>
+                </p>
+               
+            <%}%>
+
+            
+        </div>
+        <!-- <div id="foll">
+            <p>followers</p>
+            <p>followers</p>
+            <p>followers</p>
+            <p>followers</p>
+            <p>followers</p>
+            <p>followers</p>
+            <p>followers</p>
+            <p>followers</p>
+            <p>followers</p>
+            <p>followers</p>
+            <p>followers</p>
+
+        </div>
+        <div id="fing">
+            <p>followers</p>
+
+        </div> -->
+    </div>
+
+    
+
+
+    <!-- footer starts here-->
+    <footer class="border-top text-center small text-muted py-3">
+        <p style="font-weight: bold;" class="m-0">Copyright &copy; 2022 <a href="/" class="text-muted">Codeial</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+</body>
+</html>

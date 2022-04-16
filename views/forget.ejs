@@ -1,0 +1,206 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+</head>
+<body>
+    <h6>forget page</h6>
+    <form action="/users/forgetmypass" method="POST">
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html> -->
+
+<!-- 
+<!doctype html>
+<html lang="en">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title><%=title%></title>
+
+        <meta name="description" content="Union is a beautiful Bootstrap 4 template for multipurpose landing pages." /> 
+
+ 
+        <link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i" rel="stylesheet">
+
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="/css/default.css" id="theme-color">
+    </head>
+    <body>
+
+     
+          <section class="py-6" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto text-center">
+                        <h2>Update your password from here</h2>
+                        <div class="divider bg-primary mx-auto"></div>
+                    
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-8 mx-auto">
+                        <form method="POST" action="/users/forgetmypass">
+                            
+                            <div class="row">
+                               
+                               
+                              
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="email" name="email"  class="form-control" placeholder="Your email address">
+                                        
+                                    </div>
+                                </div>
+                                
+                               
+                            </div>
+                            <div class="text-center mt-3" >
+                                <button class="btn btn-primary" >Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+              <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.5.0/feather.min.js"></script>
+              <script src="/js/scripts.js"></script>
+          </body>
+      </html> -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title><%=title%></title>
+	<meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+	
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/css/login1.css">
+	<link rel="stylesheet" type="text/css" href="/css/login2.css">
+	<link rel="stylesheet" href="/css/google.css">
+	
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+		
+		
+		<div class="container-login100">
+		
+			<div class="wrap-login100" style="padding-top: 50px !important;">
+			
+			
+				<form class="login100-form validate-form" action="/users/forgetmypass" method="POST">
+					<div class="container" style="margin-bottom:20px !important ; margin-top: 0px !important;">
+						<%if(isAddedpass!=''){%>
+							 <div class="alert alert-warning alert-dismissible fade in" style="background-color: #f2f2f2 !important;" >
+								<a href="/users/forgetpassword" class="close" data-dismiss="alert" aria-label="close" ><p style="font-size: 15px !important;">&times;</p></a>
+									<p><strong>Error!</strong> <%=isAddedpass%></p>
+							</div>  
+						
+							
+						
+						<%}%>
+					</div>
+                    
+					<span class="login100-form-title p-b-60 p-t-30">
+						Update Password
+					</span>
+                   
+					
+					
+					<!--  -->
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="email" name="email" required>
+						<span class="focus-input100" data-placeholder="Email" ></span>
+					</div>
+
+					
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" style="background-color: #19abbd !important;">
+								Change Password
+							</button>
+						</div>
+					</div>
+				
+
+				
+					
+					<!-- <div class="text-center" style="padding-top: 10px !important">
+						
+					</div> -->
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+	
+<!--===============================================================================================-->
+	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/bootstrap/js/popper.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/js/login.js"></script>
+
+
+
+	
+	
+	
+
+
+</body>
+</html> 

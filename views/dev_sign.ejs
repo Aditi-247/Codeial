@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title%>
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dev_sign.css">
+</head>
+<body>
+    <header class="header-bar mb-3">
+        <div class="container d-flex flex-column flex-md-row align-items-center p-3">
+            <h4 class="my-0 mr-md-auto "><a href="/" class="text-white">Codeial</a></h4>
+            <form action="/users/signinme" method="post" class="mb-0 pt-2 pt-md-0">
+                <div class="row align-items-center">
+                    <div class="col-md mr-0 pr-md-0 mb-3 mb-md-0 text-black">
+                        <input name="email" class="form-control form-control-sm input-dark" type="email" placeholder="Email" required>
+                    </div>
+                    <div class="col-md mr-0 pr-md-0 mb-3 mb-md-0 text-black">
+                        <input name="password" class="form-control form-control-sm input-dark" type="password" placeholder="Password" required>
+                    </div>
+                    <div class="col-md-auto">
+                        <button class="btn btn-sm">Log In</button>
+                    </div>
+                </div>
+            </form>
+            <div class="col-md-auto d-flex justify-content-center">
+                <button class="btn btn-sm text-black mt-1"><a href="/users/forgetpassword" style="text-decoration: none !important; color: black !important;">Forget Password</a></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- body starts here-->
+    <div class="container py-md-5">
+        <!-- <div class="alert alert-danger text-center"><%= isAdded %></div> -->
+        <%if(isAdded!=''){%>
+         
+            <div class="alert alert-danger text-center" >
+                <a href="/" class="close" data-dismiss="alert" aria-label="close" ><p style="font-size: 25px !important;">&times;</p></a>
+                <%= isAdded %></div>
+           
+       
+       <%}%>
+        <div class="row align-items-center d-flex justify-content-center">
+           
+            <!-- <div class="col-lg-7 py-3 py-md-5">
+                <h2 class="display-4">Space for Geeks👨‍💻!!</h2>
+                <p class="lead text-muted">Enjoy post and tweets of your Friends!!!</p>
+            </div> -->
+           
+            <div class=" col-lg-5 pl-lg-5 mb-3 ">
+                <div class="google-btn ">
+                    <div class="google-icon-wrapper d-flex justify-content-center mx-auto ">
+                        <p class="btn-text"><a href="/users/auth/google"><b>Sign in/up with google</b>
+                            <img class="google-icon px-2 " src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                        </a></p>
+                    </div>
+                </div>
+                <p style="text-align: center;">or</p>
+                <form action="/users/createme" method="POST" id="registration-form">
+      
+                    <div class="form-group">
+                      <label for="username-register" class="text-muted mb-1"><small>Name</small></label>
+                      <input name="name" id="username-register" class="form-control" type="text" placeholder="Pick a username" required autocomplete="on">
+                    </div>
+        
+                    <div class="form-group">
+                      <label for="type-register" class="text-muted mb-1"><small>Profile</small></label>
+                      <select name="profile" id="profile-register" class="form-control" type="text" placeholder="Pick a profile"required autocomplete="off">
+                        <option value="Android Developer">Android Developer</option>
+                        <option value="Web Developer">Web Developer</option>
+                        <option value="Blockchain Developer">Blockchain Developer</option>
+                        <option value="ML Engineer">ML Engineer</option>
+                        <option value="Data Engineer">Data Engineer</option>
+                        <option value="Data Scientist">Data Scientist</option>
+                        <option value="Data Analyst">Data Analyst</option>
+                        <option value="Coding Instructor">Coding Instructor</option>
+                      </select>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="email-register" class="text-muted mb-1"><small>Email</small></label>
+                      <input name="email" id="email-register" class="form-control" type="email" placeholder="you@example.com" required autocomplete="on">
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="password-register" class="text-muted mb-1"><small>Password</small></label>
+                      <input name="password" id="password-register" class="form-control" type="password" required placeholder="Create a password">
+                    </div>
+                    
+                    <button type="submit" class="py-2 mt-4 btn2 btn-lg btn-info btn-block"><b>Sign up</b></button>
+                    <!-- <p class="text-muted mt-4 mb-0"><a href="/users/forgetpassword"><small>Forget Password?</small></a></p> -->
+                    <!-- <p class="text-muted text-right"><small>Don't have an Account? <a href="/users/signup">Join Now</a></small></p> -->
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer starts here-->
+    <footer class="border-top text-center small text-muted py-3">
+        <p style="font-weight: bold;" class="m-0">Copyright &copy; 2022 <a href="/" class="text-muted">Codeial</a>. All rights reserved.</p>
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+</body>
+</html>

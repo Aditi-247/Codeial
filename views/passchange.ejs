@@ -1,0 +1,152 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+</head>
+<body>
+    update your password
+    <form action="/users/newpass" method="POST">
+        <input type="hidden" name="email" value="<%=user%>" required>
+        <input type="password" name="password" placeholder="Your Password" required>
+        <input type="submit" value="update">
+    </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title><%=title%></title>
+	<meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+	
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/css/login1.css">
+	<link rel="stylesheet" type="text/css" href="/css/login2.css">
+	<link rel="stylesheet" href="/css/google.css">
+	
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+		
+		
+		<div class="container-login100">
+		
+			<div class="wrap-login100" style="padding-top: 50px !important;">
+			
+			
+				<form class="login100-form validate-form" action="/users/newpass" method="POST">
+					<div class="container" style="margin-bottom:20px !important ; margin-top: 0px !important;">
+						<%if(error!=''){%>
+							 <div class="alert alert-warning alert-dismissible fade in" style="background-color: #f2f2f2 !important;" >
+								<a href="/users/forgetpassword" class="close" data-dismiss="alert" aria-label="close" ><p style="font-size: 15px !important;">&times;</p></a>
+									<p><strong>Error!</strong> <%=error%></p>
+							</div>  
+					
+							
+							
+						
+						<%}%>
+					</div>
+                    
+					<span class="login100-form-title p-b-60 p-t-30">
+						Update Password
+					</span>
+                   
+					
+					
+					<!--  -->
+					<!-- <div class="wrap-input100 validate-input" data-validate = "*****">
+						<input class="input100" type="password" name="password"  required>
+                        <input type="password" name="password" placeholder="Your Password" required>
+                        <input type="hidden" name="email" value="<%=user%>" required>
+						<span class="focus-input100" data-placeholder="New Password" ></span>
+					</div> -->
+                    <div class="wrap-input100 validate-input" data-validate = "*****">
+						<input class="input100" type="password" name="password"  required>
+                        <!-- <input type="password" name="password" placeholder="Your Password" required> -->
+                      
+						<span class="focus-input100" data-placeholder="New	 Password" ></span>
+					</div>
+					<input type="hidden" name="email" value="<%=user%>" required>
+
+					
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" style="background-color: #19abbd !important;">
+								Change Password
+							</button>
+						</div>
+					</div>
+				
+
+				
+					
+					<!-- <div class="text-center" style="padding-top: 10px !important">
+						
+					</div> -->
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+	
+<!--===============================================================================================-->
+	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/bootstrap/js/popper.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/js/login.js"></script>
+
+
+
+	
+	
+	
+
+
+</body>
+</html>
