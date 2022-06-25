@@ -10,7 +10,7 @@ const { nextTick } = require('process');
 passport.use(new googleStrategy({
     clientID:"971362135964-mqissh8gn1g8tdi4aqsleiq7ogapqmn7.apps.googleusercontent.com",
     clientSecret:"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",
-    callbackURL:"https://codeiaal.herokuapp.com/users/auth/google/callback",
+    callbackURL:"https://codeiial.herokuapp.com/users/auth/google/callback",
 },function(accesstoken,refreshtoken,profile,done){
     users.findOne({email:profile.emails[0].value}).exec(async function(err,user){
         try{
